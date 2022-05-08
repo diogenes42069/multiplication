@@ -8,7 +8,7 @@ import time
 # Constants
 #####
 
-defaultProblemCount = 2
+defaultProblemCount = 20
 correctInARow = 2
 
 #####
