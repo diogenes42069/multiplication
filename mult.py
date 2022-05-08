@@ -7,14 +7,7 @@ import sys
 
 from problem import *
 import settings
-
-def generateProblems():
-    """Returns a list of all multiplication problems with factors from 1 to 10 (inclusive)"""
-    allProblems = []
-    for a in range(1,11):
-        for b in range(1,11):
-            allProblems.append(Problem(a,b))
-    return allProblems
+import setup
 
 def pickStudyProblems(superset, number = settings.defaultProblemCount):
     random.shuffle(superset)
@@ -72,7 +65,10 @@ def printSession(problems):
 
 
 def consoleMainLoop():
-    problems = pickStudyProblems(generateProblems())
+
+    problemMasterList = setup.initialize()
+
+    problems = pickStudyProblems(problemMasterList)
     masteredProblems = []
 
     while len(problems) != 0:
@@ -100,8 +96,6 @@ def consoleMainLoop():
         random.shuffle(problems)
         
     printSession(masteredProblems)
-
-
 
 
 consoleMainLoop()
